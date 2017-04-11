@@ -1,0 +1,391 @@
+\NeedsTeXFormat{LaTeX2e}
+\typeout{}
+\typeout{UBL PhD Thesis Template}
+\typeout{}
+
+
+
+
+\RequirePackage{latexsym}
+\RequirePackage{makeidx}
+\RequirePackage{calc}
+\RequirePackage{ifthen}
+\RequirePackage{float}
+%\RequirePackage[frenchb]{babel}
+%\RequirePackage{eso-pic}
+\RequirePackage[absolute]{textpos}
+%\RequirePackage[frenchb]{babel}
+
+%% now change the chapter style
+%% load up the quotchap package
+\RequirePackage[helvetica]{quotchap}
+\RequirePackage{makeidx}
+
+%% make the quotation appear next to the chapter number
+\renewcommand\chapterheadstartvskip{\vspace*{-5\baselineskip}}
+
+%% now change the section heading to have a line beneath it
+%% load up the fancy title-style package
+%\RequirePackage[calcwidth]{titlesec}
+\RequirePackage{multicol}
+
+
+\newcommand{\THESE}{TH{\`E}SE / UNIVERSIT{\'E} DE BRETAGNE SUD}
+\newcommand{\UNIV}{Universit{\'e} de Bretagne Sud}
+\newcommand{\UNIVaddress}{Universit{\'e} de Bretagne Sud}
+\newcommand{\UFR}{UFR Sciences et Sciences de l'Ing{\'e}nieur}
+\newcommand{\SCEAU}{sous le sceau de l'Universit{\'e} Europ{\'e}enne de Bretagne}
+\newcommand{\GRADE}{DOCTEUR DE L'UNIVERSIT{\'E} DE BRETAGNE SUD}
+\newcommand{\MENTION}{Informatique}
+\newcommand{\ED}{SICMA}
+\newcommand{\AUTEURprenom}{Ma\"el}
+\newcommand{\AUTEURnom}{AUZIAS}
+\newcommand{\LAB}{IRISA}
+\newcommand{\TITRE}{Middleware support for the Disruption-Tolerant Web of Things}
+\newcommand{\DATE}{xx xx xx}
+
+\newcommand{\PRESIDENTgenre}{}
+\newcommand{\PRESIDENTtitre}{Pr\'esident}
+\newcommand{\PRESIDENTprenom}{}
+\newcommand{\PRESIDENTnom}{}
+\newcommand{\PRESIDENTqualite}{}
+\newcommand{\RAPPORTEURgenrei}{M}
+\newcommand{\RAPPORTEURtitre}{Rapporteur}
+\newcommand{\RAPPORTEURprenomi}{Prenom}
+\newcommand{\RAPPORTEURnomi}{Nom}
+\newcommand{\RAPPORTEURqualitei}{qualit\'e}
+\newcommand{\EXAMINATEURgenrei}{M}
+\newcommand{\EXAMINATEURtitre}{Examinateur}
+\newcommand{\EXAMINATEURprenomi}{Prenom}
+\newcommand{\EXAMINATEURnomi}{Nom}
+\newcommand{\EXAMINATEURqualitei}{qualit\'e}
+\newcommand{\DIRECTEURgenrei}{M}
+%\newcommand{\DIRECTEURtitre}{Directeur de th{\`e}se}
+\newcommand{\DIRECTEURtitrei}{Directeur de th{\`e}se}
+\newcommand{\DIRECTEURprenomi}{Yves}
+\newcommand{\DIRECTEURnomi}{MAH\'EO}
+\newcommand{\DIRECTEURqualitei}{qualit\'e}
+\newcommand{\RESUMEfrancais}{R\'esum\'e en Francais.}
+\newcommand{\RESUMEanglais}{Resume in English.}
+\newcommand{\RESUMEtitre}{Titre resume}
+\newcommand{\NORDRE}{223}
+
+
+
+\newcommand{\COVERBACKGROUND}[2]{
+	\begin{textblock*}{\paperwidth}(0mm,0mm)
+		\noindent\includegraphics[width=\paperwidth,height={#2}\paperwidth]{#1}
+	\end{textblock*}
+
+	\begin{textblock*}{.5\paperwidth-2mm}(0mm,{#2}\paperwidth-32mm)
+		\noindent\mbox{
+			\begin{minipage}{.5\paperwidth-2mm}
+        			\vspace{3pt}
+				\noindent \flushright \small \textcolor{white}{\fontfamily{phv}\selectfont \textbf{\THESE}}
+				\vspace{-6pt}
+				\noindent \flushright \scriptsize \textcolor{white}{\fontfamily{phv}\selectfont \textbf{\UFR}}
+				\vspace{-7pt}
+				\noindent \flushright \tiny \textcolor{white}{\fontfamily{phv}\selectfont \emph{\SCEAU}}
+				\vspace{-3pt}
+				\noindent \flushright \tiny \textcolor{white}{\fontfamily{phv}\selectfont Pour obtenir le grade de :}
+				\vspace{-8pt}
+				\noindent \flushright \tiny \textcolor{white}{\fontfamily{phv}\selectfont \textbf{\GRADE}}
+				\vspace{-8pt}
+				\noindent \flushright \tiny \textcolor{white}{\fontfamily{phv}\selectfont \emph{Mention : \MENTION}}
+				\vspace{-8pt}
+				\noindent \flushright \tiny \textcolor{white}{\fontfamily{phv}\selectfont \textbf{{\'E}cole Doctorale \ED}}
+%				\hspace{1pt}}
+			\end{minipage}
+		}
+	\end{textblock*}
+
+	\begin{textblock*}{.5\paperwidth-2mm}(.5\paperwidth+2mm,{#2}\paperwidth-32mm)
+		\noindent\mbox{
+			\begin{minipage}{.5\paperwidth-2mm}
+				\vspace{3.6mm}
+				\noindent \flushleft \scriptsize \textcolor{white}{\fontfamily{phv}\selectfont pr{\'e}sent{\'e}e par}
+				\vspace{-9pt}
+				\noindent \flushleft \LARGE \textcolor{white}{\fontfamily{phv}\selectfont \AUTEURprenom\ \AUTEURnom}
+				\vspace{-3pt}
+				\noindent \flushleft \normalsize \textcolor{white}{\fontfamily{phv}\selectfont \LAB}
+			\end{minipage}
+		}
+	\end{textblock*}
+
+	\begin{textblock*}{.5\paperwidth-2mm}(0mm,{#2}\paperwidth+1mm)
+		\noindent\mbox{
+			\begin{minipage}{.5\paperwidth-7pt}
+				\noindent \flushright \huge \textcolor{black}{\fontfamily{phv}\selectfont \textbf{\TITRE}}
+			\end{minipage}
+		}
+	\end{textblock*}
+
+	\begin{textblock*}{.5\paperwidth-2mm}(.5\paperwidth+2mm,{#2}\paperwidth)
+		\noindent\mbox{
+			\begin{minipage}{.5\paperwidth-2mm}
+				\vspace{1mm}
+				\noindent \flushleft \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont \textbf{Th{\`e}se soutenue le \DATE,}}
+				\vspace{-9pt}
+				\noindent \flushleft \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont devant la commission d'examen compos{\'e}e de :}
+
+				\vspace{5pt}
+
+				\noindent \flushleft \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont \textbf{\PRESIDENTgenre.\ \PRESIDENTprenom\ \PRESIDENTnom}}
+				\vspace{-9pt}
+				\noindent \flushleft \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont \PRESIDENTqualite\ / \PRESIDENTtitre}
+
+				\setcounter{III}{0}
+				\whiledo{{\value{III}<\value{cptRapporteur}}}{
+					\stepcounter{III}
+					\vspace{-5pt}
+					\noindent \flushleft \hspace{-4pt} \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont \textbf{
+						{\csname RAPPORTEURgenre\roman{III}\endcsname}.\ {\csname RAPPORTEURprenom\roman{III}\endcsname}\ {\csname RAPPORTEURnom\roman{III}\endcsname}}
+					}
+					\vspace{-9pt}
+					\noindent \flushleft \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont
+						{\csname RAPPORTEURqualite\roman{III}\endcsname}\ / \RAPPORTEURtitre
+					}
+				}
+
+				\setcounter{III}{0}
+				\whiledo{{\value{III}<\value{cptExaminateur}}}{
+					\stepcounter{III}
+					\vspace{-5pt}
+					\noindent \flushleft \hspace{-4pt} \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont \textbf{
+						{\csname EXAMINATEURgenre\roman{III}\endcsname}.\ {\csname EXAMINATEURprenom\roman{III}\endcsname}\ {\csname EXAMINATEURnom\roman{III}\endcsname}}
+					}
+					\vspace{-9pt}
+					\noindent \flushleft \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont
+						{\csname EXAMINATEURqualite\roman{III}\endcsname}\ / \EXAMINATEURtitre
+					}
+				}
+
+				\setcounter{III}{0}
+				\whiledo{{\value{III}<\value{cptDirecteur}}}{
+					\stepcounter{III}
+					\vspace{-5pt}
+					\noindent \flushleft \hspace{-4pt} \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont \textbf{
+						{\csname DIRECTEURgenre\roman{III}\endcsname}.\ {\csname DIRECTEURprenom\roman{III}\endcsname}\ {\csname DIRECTEURnom\roman{III}\endcsname}}
+					}
+					\vspace{-9pt}
+					\noindent \flushleft \scriptsize \textcolor{black}{\fontfamily{phv}\selectfont
+						{\csname DIRECTEURqualite\roman{III}\endcsname}\ / {\csname DIRECTEURtitre\roman{III}\endcsname}
+					}
+				}
+			\end{minipage}
+		}
+	\end{textblock*}
+
+}
+
+
+
+
+\newcommand{\makePhDThesisUBL}{
+	\thispagestyle{empty}
+%	\COVERBACKGROUND{FrontCover_UBL.eps}{1.02489019}
+	\COVERBACKGROUND{build/FrontCover_UBL.pdf}{1.02489019}
+}
+
+
+
+\setlength{\parskip}{1ex}
+
+\setlength{\hoffset}{0mm}
+\setlength{\voffset}{0mm}
+\setlength{\paperheight}{297mm}
+\setlength{\paperwidth}{210mm}
+\setlength{\textwidth}{150mm}
+%\setlength{\textwidth}{140mm}
+\setlength{\marginparwidth}{0mm}
+%\setlength{\headheight}{2\baselineskip}
+\setlength{\textheight}{227mm}
+\setlength{\topmargin}{0mm}
+\setlength{\evensidemargin}{0mm}
+\setlength{\oddsidemargin}{10mm}
+%%\setlength{\oddsidemargin}{20mm}
+\renewcommand{\ps@plain}{
+	\renewcommand{\@oddhead}{}
+	\renewcommand{\@evenhead}{}
+	\renewcommand{\@evenfoot}{\hfil\textrm{\thepage}\hfil}
+	\renewcommand{\@oddfoot}{\@evenfoot}
+}
+\renewcommand{\ps@headings}{
+	\renewcommand{\@oddhead}{\parbox{210mm}{\leftmark\hfil\thepage}}
+	\renewcommand{\@evenhead}{\parbox{210mm}{\thepage\hfil\rightmark}}
+	\renewcommand{\@evenfoot}{}
+	\renewcommand{\@oddfoot}{\@evenfoot}
+}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\addtocounter{secnumdepth}{1}
+\AtBeginDocument{
+	\makeindex
+	\def\uppercase{}
+	\newcounter{cptRapporteur}
+	\setcounter{cptRapporteur}{0}
+	\newcounter{cptExaminateur}
+	\setcounter{cptExaminateur}{0}
+	\newcounter{cptDirecteur}
+	\setcounter{cptDirecteur}{0}
+	\newcounter{III}
+}
+\AtEndDocument{
+}
+
+
+
+
+\newcommand{\ignore}[1]{}
+\newcommand{\rmq}[1]{{\noindent\texttt{\textbf{Remarque:}#1}}}
+\newcommand{\nohyphens}{\hyphenpenalty=10000\exhyphenpenalty=10000\relax}
+\newcommand{\whitepage}{\newpage\thispagestyle{empty}\addtocounter{page}{-1}~\vspace*{3cm}~\vfill~\newpage}
+
+
+
+
+\newcommand{\Titre}[1]{\renewcommand{\TITRE}{{\LARGE\textbf{#1}}}}
+\newcommand{\DateSoutenance}[1]{\renewcommand{\DATE}{#1}}
+\newcommand{\Auteur}[2]{
+	\renewcommand{\AUTEURprenom}{#1}
+	\renewcommand{\AUTEURnom}{#2}
+}
+\newcommand{\Composante}[4]{
+	\renewcommand{\UNIV}{#1}
+	\renewcommand{\UNIVaddress}{#2}
+	\renewcommand{\UFR}{#3}
+	\renewcommand{\LAB}{#4}
+}
+\newcommand{\President}[4]{
+	\renewcommand{\PRESIDENTgenre}{#1}
+	\ifthenelse{\equal{#1}{Me}}{\renewcommand{\PRESIDENTtitre}{Pr{\'e}sidente}}{}
+	\renewcommand{\PRESIDENTprenom}{#2}
+	\renewcommand{\PRESIDENTnom}{#3}
+	\renewcommand{\PRESIDENTqualite}{#4}
+}
+\newcommand{\Rapporteur}[4]{
+	\stepcounter{cptRapporteur}
+	\nouveauRapporteur{\roman{cptRapporteur}}{#1}{#2}{#3}{#4}
+}
+\newcommand{\nouveauRapporteur}[5]{
+	\expandafter\def\csname RAPPORTEURgenre#1\endcsname{#2}
+	\expandafter\def\csname RAPPORTEURprenom#1\endcsname{#3}
+	\expandafter\def\csname RAPPORTEURnom#1\endcsname{#4}
+	\expandafter\def\csname RAPPORTEURqualite#1\endcsname{#5}
+}
+\newcommand{\Examinateur}[4]{
+	\stepcounter{cptExaminateur}
+	\nouveauExaminateur{\roman{cptExaminateur}}{#1}{#2}{#3}{#4}
+}
+\newcommand{\nouveauExaminateur}[5]{
+	\expandafter\def\csname EXAMINATEURgenre#1\endcsname{#2}
+	\expandafter\def\csname EXAMINATEURprenom#1\endcsname{#3}
+	\expandafter\def\csname EXAMINATEURnom#1\endcsname{#4}
+	\expandafter\def\csname EXAMINATEURqualite#1\endcsname{#5}
+}
+\newcommand{\Directeur}[5]{
+	\stepcounter{cptDirecteur}
+	\nouveauDirecteur{\roman{cptDirecteur}}{#1}{#2}{#3}{#4}{#5}
+}
+\newcommand{\nouveauDirecteur}[6]{
+	\expandafter\def\csname DIRECTEURgenre#1\endcsname{#2}
+	\expandafter\def\csname DIRECTEURprenom#1\endcsname{#3}
+	\expandafter\def\csname DIRECTEURnom#1\endcsname{#4}
+	\expandafter\def\csname DIRECTEURqualite#1\endcsname{#5}
+	\expandafter\def\csname DIRECTEURtitre#1\endcsname{#6}
+}
+
+
+\newcommand{\Resumes}[3]{
+        \renewcommand{\RESUMEtitre}{#1}
+	\renewcommand{\RESUMEfrancais}{#2}
+	\renewcommand{\RESUMEanglais}{#3}
+}
+
+\newcommand{\resumes}{
+
+        \begin{textblock*}{.5\paperwidth-2cm}(1.5cm,2cm)
+		\noindent\mbox{
+			\begin{minipage}{.5\paperwidth-2cm}
+				\begin{center}
+			                \small \fontfamily{phv}\selectfont \textbf{R{\'e}sum{\'e}}
+		                \end{center}
+		                \scriptsize \fontfamily{phv}\selectfont \RESUMEfrancais
+			\end{minipage}
+		}
+	\end{textblock*}
+
+	\begin{textblock*}{.5\paperwidth-2cm}(.5\paperwidth+2.5mm,2cm)
+		\noindent\mbox{
+			\begin{minipage}{.5\paperwidth-2cm}
+	                        \begin{center}
+			                \small \fontfamily{phv}\selectfont \textbf{Abstract}
+		                \end{center}
+		                \scriptsize \fontfamily{phv}\selectfont \RESUMEanglais %ALI Changed the font size from script size to small
+			\end{minipage}
+		}
+	\end{textblock*}
+
+	\begin{textblock*}{\paperwidth-2cm}(1.5cm,25.7cm)
+        	\noindent\mbox{
+			\begin{minipage}{\paperwidth-2cm}
+        	        	\noindent\includegraphics[width=1.35cm,height=1.89cm]{./Images/Cover/logo-UBS.jpg}
+	        	\end{minipage}
+                }
+	\end{textblock*}
+
+	\begin{textblock*}{\paperwidth-2cm}(4.5cm,25.6cm)
+		\noindent\mbox{
+			\begin{minipage}{\paperwidth-2cm}
+        	                        \noindent \flushleft \small \fontfamily{phv}\selectfont n d'ordre : \NORDRE
+        	                        \vspace{-8pt}
+			                \noindent \flushleft \small \fontfamily{phv}\selectfont \textbf{\UNIV}
+			                \vspace{-8pt}
+			                \noindent \flushleft \scriptsize \fontfamily{phv}\selectfont \UNIVaddress
+			\end{minipage}
+		}
+	\end{textblock*}
+
+}
+
+
+
+\newcommand{\remerciements}[1]{
+	\thispagestyle{empty}
+	\section*{Remerciements}
+
+	Je remercie \PRESIDENTgenre.\ \PRESIDENTprenom\ \PRESIDENTnom, \PRESIDENTqualite, qui me fait l'honneur de pr{\'e}sider ce jury.\\[\baselineskip]
+
+	Je remercie
+	\setcounter{III}{1}
+	\whiledo{\value{III}<\value{cptRapporteur}}{
+		{\csname RAPPORTEURgenre\roman{III}\endcsname}.\ {\csname RAPPORTEURprenom\roman{III}\endcsname}\ {\csname RAPPORTEURnom\roman{III}\endcsname}, {\csname RAPPORTEURqualite\roman{III}\endcsname}
+		\stepcounter{III}
+		\ifthenelse{\value{III}=\value{cptRapporteur}}{et }{, }
+	}{\csname RAPPORTEURgenre\roman{III}\endcsname}.\ {\csname RAPPORTEURprenom\roman{III}\endcsname}\ {\csname RAPPORTEURnom\roman{III}\endcsname}, {\csname RAPPORTEURqualite\roman{III}\endcsname}, d'avoir bien voulu accepter la charge de rapporteur.\\[\baselineskip]
+
+	Je remercie
+	\setcounter{III}{1}
+	\whiledo{\value{III}<\value{cptExaminateur}}{
+		{\csname EXAMINATEURgenre\roman{III}\endcsname}.\ {\csname EXAMINATEURprenom\roman{III}\endcsname}\ {\csname EXAMINATEURnom\roman{III}\endcsname}, {\csname EXAMINATEURqualite\roman{III}\endcsname}
+		\stepcounter{III}
+		\ifthenelse{\value{III}=\value{cptExaminateur}}{et }{, }
+	}{\csname EXAMINATEURgenre\roman{III}\endcsname}.\ {\csname EXAMINATEURprenom\roman{III}\endcsname}\ {\csname EXAMINATEURnom\roman{III}\endcsname}, {\csname EXAMINATEURqualite\roman{III}\endcsname}, d'avoir bien voulu accepter la charge d'examinateur.\\[\baselineskip]
+
+	Je remercie
+	\setcounter{III}{1}
+	\whiledo{\value{III}<\value{cptDirecteur}}{
+		{\csname DIRECTEURgenre\roman{III}\endcsname}.\ {\csname DIRECTEURprenom\roman{III}\endcsname}\ {\csname DIRECTEURnom\roman{III}\endcsname}, {\csname DIRECTEURqualite\roman{III}\endcsname}
+		\stepcounter{III}
+		\ifthenelse{\value{III}=\value{cptDirecteur}}{et }{,}
+	}{\csname DIRECTEURgenre\roman{III}\endcsname}.\ {\csname DIRECTEURprenom\roman{III}\endcsname}\ {\csname DIRECTEURnom\roman{III}\endcsname}, {\csname DIRECTEURqualite\roman{III}\endcsname}, qui ont dirig{\'e} ma th{\`e}se.\\[\baselineskip]
+}
+
+\newcommand{\alignquatriemedecouv}{
+\newpage\thispagestyle{empty}~
+\ifodd\value{page}
+\newpage\thispagestyle{empty}
+\else
+\newpage\thispagestyle{empty}~\newpage\thispagestyle{empty}
+\fi
+}

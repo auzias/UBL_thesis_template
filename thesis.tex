@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Required package and class
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,oneside,12pt,a4paper,twoside,openright]{book}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+
+\usepackage[pdftex,
+            pdfauthor={Your Name},
+            pdftitle={Your thesis title},
+            pdfsubject={Phd Thesis},
+            pdfkeywords={},
+            pdfproducer={LaTeX with hyperref},
+            pdfcreator={pdflatex}]{hyperref}
+
+\usepackage{./build/PhDThesis_UBL}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Package (user-added)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Usually put at the start of a chapter: quote and minitoc
+%% Epigraph: http://texdoc.net/texmf-dist/doc/latex/epigraph/epigraph.pdf
+\usepackage{epigraph}   % Enables quotes
+
+%% minitoc: http://www.ctex.org/documents/packages/contents/minitoc.pdf
+\usepackage{minitoc}
+\usepackage[round]{natbib}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Document structure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    % Front Page
+    \Titre{Thesis Title} \vspace{20pt}
+    \DateSoutenance{xx-xx-xxxx}
+    \Auteur{First-Name}{Surname}
+    \Composante{Universit{\'e} de Bretagne Sud}{Centre d'Enseignement et de Recherche Y. Coppens - rue Yves Mainguy - 56000 VANNES \\ T{\'e}l : + 33(0)2 97 01 70 70 Fax : + 33(0)2 97 01 70 70}{UFR Sciences et Sciences de l'Ing{\'e}nieur}{IRISA Institut de Recherche en Informatique et Syst\`emes Al\'eatoires}
+    \President{x}{xx}{xx}{xxxx}
+    \Rapporteur{x}{xx}{xx}{xxxx}
+    \Rapporteur{x}{xx}{xx}{xxxx}
+    \Examinateur{x}{xx}{xx}{xxxx}
+    \Directeur{M}{First-Name}{Surname}{Ma\^itre de Conferences HDR, Universit\'e de Bretagne-Sud}{Directeur de th{\`e}se}
+    \Directeur{M}{First-Name}{Surname}{Ma\^itre de Conferences, Universit\'e de Bretagne-Sud}{Encadrant de th{\`e}se}
+
+    \makePhDThesisUBL
+
+    \whitepage
+    \thispagestyle{empty}
+
+    \newpage\null\thispagestyle{empty}\newpage
+
+    % These following lines are needed to get `\minitoc` working
+    \dominitoc
+    \tableofcontents
+    \listoffigures \addcontentsline{toc}{chapter}{List of Figures} \mtcaddchapter
+    \listoftables \addcontentsline{toc}{chapter}{List of Tables}   \mtcaddchapter
+
+
+    %\input{chap/acknowledgments}
+    \input{chap/1-intro}
+    %\input{chap/..}
+    %\input{chap/..}
+    %\input{chap/6-concl}
+    %\input{chap/abstract}
+
+
+    %\input{chap/appendix}
+    %% In the file `abstract.tex` and after the command "\begin{appendices}"
+    %% put the command `\pagenumbering{roman}` so the pages are numbered with
+    %% roman numbers.
+
+
+    \bibliographystyle{unsrt}
+    %\bibliography{bib/references}
+
+
+    %\input{chap/abstract}
+
+
+\end{document}
