@@ -22,7 +22,8 @@ command `bibtex` is also needed.
 ## Auto-compilation
 On a side note, I suggest to use `inotifywait` command, from the Linux package
 `inotify-tools`, and a script that will automatically compile the document each
-time a `*.tex` file is saved.
+time a `*.tex` file is saved. This scripts ends by printing a green-message if
+all references are valid or a red-message with the list of missing references.
 
 
 ## Docker
@@ -32,4 +33,5 @@ from different computers effortlessly. The Docker image I use embeds
 coloration for source code. The Dockerfile is in the `Docker` directory and can
 be built, once in the `Docker` directory, with the command
 `docker build -t pdflatex .`. This image also provide `bibtex` command.
-Then make sure your Docker daemon is running, and execute `auto-compile.sh` to automatically compile your thesis.
+Then make sure your Docker daemon is running, and execute `auto-compile.sh`
+to automatically compile your thesis.
